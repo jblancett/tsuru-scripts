@@ -23,7 +23,7 @@ template["data"].each{ |p| params[p['name']] = p['value'] }
 puts "Old #{template_name} template: #{params.inspect}"
 ARGV.each do |p|
   k, v = p.split('=')
-  params[k] = v
+  params[k] = v if v
 end
 puts "New #{template_name} template: #{params.inspect}"
 data = []
