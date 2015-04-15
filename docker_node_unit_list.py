@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+B0;95;c#!/usr/bin/env python
 
 import os
 import sys
@@ -15,7 +15,7 @@ class DockerNodeUnitList(object):
             print "missing TSURU_TARGET"
             sys.exit(1)
         self.token = os.environ['TSURU_TOKEN']
-        self.target = os.environ['TSURU_TARGET']
+        self.target = os.environ['TSURU_TARGET'].rstrip('/')
 
     def request(self, path='/apps', method='GET', data=''):
         headers = {
