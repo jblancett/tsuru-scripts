@@ -1,4 +1,4 @@
-B0;95;c#!/usr/bin/env python
+#!/usr/bin/env python
 
 import os
 import sys
