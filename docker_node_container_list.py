@@ -23,9 +23,11 @@ class DockerNodeUnitList(object):
             'Content-Type': 'application/json'
         }
         if self.target.startswith('https://'):
-            connection = httplib.HTTPSConnection(self.target.lstrip('https://'))
+            connection = httplib.HTTPSConnection(self.target[8:])
+        elif self.target.startswith('http://'):
+            connection = httplib.HTTPSConnection(self.target[7:])
         else:
-            connection = httplib.HTTPConnection(self.target.lstrip('http://'))
+            connection = httplib.HTTPConnection(self.target)
         connection.request(method, path, data, headers)
         response = connection.getresponse()
         data = response.read()
